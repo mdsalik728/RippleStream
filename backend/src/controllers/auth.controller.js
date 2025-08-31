@@ -130,7 +130,7 @@ export async function logout(req,res){
     }catch(streamError){
         console.log("error updating Stream user during onboarding",streamError.message)
     }
-       res.status(200).json({success:"true",user:updatedUser});
+       res.status(200).json({success:"true",user:updatedUser}); //user is returned
     }catch(error){
         console.log("onboarding error",error);
         res.status(500).json({message:"Internal Server Error"});
