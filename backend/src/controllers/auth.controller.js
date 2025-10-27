@@ -56,7 +56,7 @@ res.cookie("jwt",token,{
     maxAge: 7*24*60*60*100,
     httpOnly:true, //prevent xss attacks
     sameSite:"strict", ////prevent csrf attacks
-    secure: process.env.NODE_ENV==="production",
+    secure: process.env.NODE_ENV==="production",  // change to development
 
 });
 res.status(201).json({success:true,user:newUser})
@@ -65,6 +65,7 @@ res.status(201).json({success:true,user:newUser})
         res.status(500).json({message:"Internal Server Error"});
 
     }
+
 }
 export async function login(req,res){
     try{
@@ -113,7 +114,7 @@ export async function logout(req,res){
                 ].filter(Boolean), //to get only true values
             });
         }
-       const updatedUser= await User.findByIdAndUpdate(userId,{ ...req.body,isOnBoarded:true},{new:true});
+       const updatedUser= await User.findByIdAndUpdate(userId,{ ...req.body,isOnboarded:true},{new:true});
        if(!updatedUser){
         return res.status(404).json({message:"user not found"});
        }

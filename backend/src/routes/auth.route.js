@@ -10,12 +10,12 @@ import { protectRoute } from "../middleware/auth.middleware.js";
   router.post("/login",login);
   router.post("/logout",logout);
 
-  //forgot password route
+  //to do forgot password route
   
   router.post("/onboarding",protectRoute,onboard);
 
   router.get("/me",protectRoute,(req,res)=>{
-    return res.status(200).json({message:"user logged in"});
+    return res.status(200).json({success:true,user:req.user});
   })
 
 export default router;

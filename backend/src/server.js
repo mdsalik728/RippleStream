@@ -6,6 +6,7 @@ import chatRoutes from "./routes/chat.route.js"
 import {connectDB} from "./lib/db.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import User from "./models/User.js";
 
 // import dotenv from "dotenv";
 // dotenv.config();  // required for using env file
@@ -29,4 +30,9 @@ app.use("/api/chat",chatRoutes);
 app.listen(PORT,()=>{
     console.log(`server is running on port ${PORT}`)
     connectDB();
+    
 })
+ async function clean(){
+    await User.deleteMany({});
+
+ }
