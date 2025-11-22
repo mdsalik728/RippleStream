@@ -19,7 +19,7 @@ router.post("/friend-request/:id",sendFriendRequest);
 router.put("/friend-request/:id/accept",acceptFriendRequest);
 
 //get pending requests
-router.get("/friend-request/:id/",getFriendRequests);
+router.get("/friend-requests/",getFriendRequests);
 
 //get Outgoing requests
 

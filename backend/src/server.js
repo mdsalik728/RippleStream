@@ -7,11 +7,13 @@ import {connectDB} from "./lib/db.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import User from "./models/User.js";
+import path from "path"; //fro deployment
 
 // import dotenv from "dotenv";
 // dotenv.config();  // required for using env file
 const app= express();
 const PORT=process.env.PORT;
+const __dirname=path.resolve();
 app.use(cors({
     origin:"http://localhost:5173",
     credentials:true //allow frontend to send cookies
@@ -27,11 +29,20 @@ app.use("/api/auth",authRoutes);
 app.use("/api/users",userRoutes);
 
 app.use("/api/chat",chatRoutes);
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+  });
+}
+
 app.listen(PORT,()=>{
     console.log(`server is running on port ${PORT}`)
     connectDB();
     
 })
+
  async function clean(){
     await User.deleteMany({});
 
