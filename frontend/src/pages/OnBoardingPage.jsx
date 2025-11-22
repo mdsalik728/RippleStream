@@ -9,7 +9,7 @@ import { LoaderIcon, MapPinIcon, ShipWheelIcon, ShuffleIcon } from "lucide-react
 
 const OnBoardingPage = () => {
   const{authUser}=useAuthUser();
-  const queryClient=useQueryClient;
+  const queryClient=useQueryClient();
 
   const[formState,setFormState]=useState({
     fullName:authUser?.fullName || "",
