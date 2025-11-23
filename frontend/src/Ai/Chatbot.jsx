@@ -100,7 +100,7 @@ useEffect(() => {
 
     // Using Tailwind CSS classes for the collapsible and fixed positioning
     const widgetClasses = `md:fixed md:bottom-10 lg:right-4 z-50 transition-all duration-300 rounded-full ${
-        isOpen ? 'w-96 h-[500px] shadow-2xl rounded-lg bg-green-700' : 'w-30 h-20 rounded-full '
+        isOpen ? 'w-96 h-[500px] shadow-2xl rounded-lg bg-green-700' : 'w-30 h-30 rounded-full '
     }`;
     const headerClasses = `flex justify-between items-center p-3 bg-green-700 text-white  cursor-pointer ${isOpen?'rounded-t-lg':'rounded-lg'}`;
     const chatWindowClasses = isOpen ? 'flex flex-col h-[calc(100%-48px)]' : 'hidden';
