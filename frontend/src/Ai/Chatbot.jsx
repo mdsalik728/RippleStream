@@ -45,7 +45,7 @@ export default function GeminiChatWidget() {
         if (!input.trim() || isLoading) return;
 
         // 1. Prepare user message and optimistically update UI
-        const currentPromptText = input + " in brief";
+        const currentPromptText = input + "(in brief)";
         const userMessage = { role: 'user', text: input }; // Message for UI state
         
         // Content object for API (uses the modified text)
