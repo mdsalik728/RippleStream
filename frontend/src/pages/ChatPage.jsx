@@ -18,6 +18,7 @@ import toast from "react-hot-toast";
 
 import ChatLoader from "../components/ChatLoader";
 import CallButton from "../components/CallButton";
+import GeminiChatWidget from "../Ai/Chatbot";
 
 const STREAM_API_KEY = import.meta.env.VITE_STREAM_API_KEY;
 
@@ -97,7 +98,7 @@ const ChatPage = () => {
   return (
     <div className="h-[93vh]">
       
-        
+         
       <Chat client={chatClient}>
         <Channel channel={channel}>
           <div className="w-full relative">
@@ -110,8 +111,9 @@ const ChatPage = () => {
           </div>
           <Thread />
         </Channel>
+       
       </Chat>
-      
+      <GeminiChatWidget/>
     </div>
   );
 };
